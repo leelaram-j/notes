@@ -1,0 +1,10 @@
+Automating dynamic dropdown n web application
+
+Tricky part in selenium..because dynamic dropdown, developer will use the same set of values in each both the dropdown, in order to solve it we need to use the the below syntax
+
+(//a[@value=‘DEL’])[2]
+
+
+Remember, when you are automating dynamic drop downs, they tend to use the same set of values for both/multiple the dynamic drop downs, hence we need to be careful and when you are trying to select value for second dropdown please select the second instance of the path or css selector id, so that that particular instance will be called and the automation can be done.
+
+Refer dynamic_Drop_down java file for the usage.

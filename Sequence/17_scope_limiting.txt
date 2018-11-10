@@ -1,0 +1,20 @@
+
+validationcount of links ins webpage
+count of linkspresent in the footer/header section
+count of links in a particular column in footer section
+how to handle dynamic links position based
+
+for eg, if we want to count the links in footer, first navigate to that particular location, pass it to WebElement to limit the scope, then get the lsit of links
+By.tagName("a")
+ remember to use findElements to get all the elements and cycle thru them using for loop.
+ 
+ for(int i =0;i<foot1.findElements(By.tagName("a")).size();i++)
+         {
+             System.out.println("\n"+foot1.findElements(By.tagName("a")).get(i).getText());
+ //            System.out.println(foot1.findElements(By.tagName("a")).get(i).getAttribute("href"));
+             if((foot1.findElements(By.tagName("a")).get(i).getText()).contains("StubHub"))
+             {
+                 foot1.findElements(By.tagName("a")).get(i).click();
+                 break;
+             }
+         }

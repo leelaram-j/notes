@@ -1,0 +1,2 @@
+xslt reports is used for generating reports. you need to download sandstone jars to get this working. add them to the entire jars set folder.
+give them in the ant build file and it will do the rest.

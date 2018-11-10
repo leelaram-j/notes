@@ -1,0 +1,23 @@
+CSS selector technique :
+
+its faster thn xpath...class under the class can be idenetified only using CSS only. Its light weight..
+syntax is easy and straight forward
+
+syntax1
+tagname[attribute='value']
+
+syntax2
+[attribute='value']
+
+input[class='inputUsername input_xxlarge']
+input[class='inputPassword input_xxlarge']
+
+syntax3 if you are using id as a attribute then use #
+eg #id_name
+
+syntax4 if you are using class as a attribute then use . if there is a space between class name then use . again]
+
+eg classnamefirstpartbeforespace.classnamesecondpartafterspace
+
+
+check css_selector.java for all possible combinations..every combination there works.

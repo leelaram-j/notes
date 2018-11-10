@@ -1,0 +1,53 @@
+Synchronization in Selenium Automation
+1- Implicit wait
+driver.manage().timeouts().implicitlyWait(5,TimeUnit.SECONDS);
+
+The above should be given after the driver intializations.
+2- Explicit wait
+
+This is given if we need to wait for a particular element longer than usual time. itworks only for findElement and findElements method.
+
+It always require condition to execute.
+sample case:
+
+WebDriverWait d = new WebDriverWait(driver,20);
+d.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("")));
+
+for title check
+d.until(ExpectedConditions.invisiblityOfElementLocated(Locator))
+d.until(ExpectedConditions.elementTobeClickable)
+
+//div[@id='resultsContainer']/section/article[1]/div[2]/div/div/a
+
+
+we also use explicit waits to check if css property of an element (presence,clickability..etc) which can change in Ajax applications.
+
+3- Thread.sleep(3000)
+thisis used to stop the execution of script for 3 seconds as it tkes arguments in milliseconds. This may be used for sample purposes but for main coding this should not be used as it is not a good way to write programs.
+
+4- Fluent wait
+Below code will explain the usage of FluentWait. also rememmber to import the respective imports for the below code.Please remember that for Function import in the beow code use 
+com.google.common.base.Function and not the one provided by selenium.org
+
+
+Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+
+                .withTimeout(30, TimeUnit.SECONDS)
+
+                .pollingEvery(1, TimeUnit.SECONDS)
+
+                .ignoring(NoSuchElementException.class);
+        WebElement element = wait.until(new Function<WebDriver, WebElement>()
+        {
+            @Override
+            public WebElement apply(WebDriver driver) {
+                return driver.findElement(By.xpath("//div[@id='resultsContainer']/section/article[1]/div[2]/div/a"));
+            }
+        });
+        driver.findElement(By.xpath("//div[@id='resultsContainer']/section/article[1]/div[2]/div/a")).click();
+		
+		
+You can also use element.isDisplayed() or isEnabled and check the presence of elements
+
+Fluent wait is used where u need to test the presence of element every n seconds and upto a duration of m seconds . i.e we can totally wait for 30 seconds for the element to appear and check for its presence every 1 second or n seconds with polling time and at the same time ignore the element not found exception.		
+		

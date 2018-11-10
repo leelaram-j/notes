@@ -1,0 +1,37 @@
+Ho wot handle dropdowns in selenium
+it is done using select class in seleniumwebdriver
+diff methods
+1) option text
+2) index
+3) value attribute
+4) select mulitple options in dropdowns
+5) select and deselect options
+
+how to handle java alerts.
+driver.switchTo.alert method is used to send control from html to javascript...
+for clicking ok
+driver.switchTo().Alert().accept(); for all positive scenarios
+driver.switchTo().Alert().dismiss(); for all cancelling and negtive scenarios
+driver.switchTo().Alert().getText(); this is used to get all text from that alert that is generated.
+//driver.switchTo().alert().sendKeys("fesfe"); this is used to send keyboard entered values to the alert.
+
+we can also use Alert classfrom selenium package to do the same.
+Alert alert = driver.switchTo().alert();
+        System.out.println(alert.getText());
+        alert.accept();
+
+
+handling checkboxes is normal
+to check whether check box is selected or not we use
+isSelected()-> this will tell us whether the option is selected ot not..
+
+isEnabled()->to check whether the element is enabled or not
+isDisabled()->to check whether the element is disabled or not  
+isDisplayed()-> It returns if the element is displayedor not.
+
+the above is used for validations in test cases
+
+how to handle radio buttons
+radio buttons will mostly have same attibutes so in this case we need to find the parent node and traverse to the radio buttons and use find elements attribute to select the elements 
+
+Interview questions:how to handle options

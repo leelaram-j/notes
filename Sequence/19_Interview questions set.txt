@@ -1,0 +1,41 @@
+Interview questions:
+frames handling,Actions class usage(mouse over and keyboard interaction,drag and drop concept),handling multiple windows,
+
+mouse over action using 
+act.moveToElement(elemt id)
+.build()
+.perform()
+
+
+you can double click using doubleClick()
+u can hold a button press using keysDown()
+note that keysDown/keysUp take only 3 arguments
+Keys.CONTROL
+Keys.ALT
+Keys.SHIFT
+if you use any other then it will throw exception.
+
+always remember to use build() and perform() to do the desired action, w/o this u cannot perform the action.
+
+use contextClick() to right click on an element.
+
+most important question: by which you can send the control between parent and child pages.
+
+Set<String> ids = driver.getWindowHandles();
+        Iterator<String> its = ids.iterator();
+        String parentId = its.next();
+        String childId = its.next();
+        driver.switchTo().window(childId);
+		
+once switched to child window, u need to again switch to parent window in order to access elements in parent window
+
+handling frames.
+
+use driver.switchTo().frame() to go to frame and when u need to come out of it, please use driver.switchTo().defaultContent()
+
+
+most important questions in interview:
+1) send data in capital letters
+2) mouse over functions
+3) traversing between windows using getWindowHandle() and using set and iterator to cycle through it.
+4) handling frames

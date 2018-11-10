@@ -1,0 +1,31 @@
+Data driven testing:
+
+Properties class in java
+
+Properties prop = new Properties();
+
+always remember to give.properties to the input file name. as the Properties class recognizes only .properties extension.
+key=value-> format in the .properties file
+
+sample as below:
+username=abcd
+password=xyza
+url=https://www.facebook.com
+
+Test function as below:
+@Test
+    public void login() throws IOException
+    {
+        Properties prop = new Properties();
+        FileInputStream fis = new FileInputStream("//Users//lee//eclipse-workspace//Framework//src//TestNGFiles2//inputData.properties");
+        prop.load(fis);
+        System.out.println("Username is "+prop.getProperty("username"));
+        System.out.println("password is "+prop.getProperty("password"));
+        System.out.println("URL is "+prop.getProperty("url"));
+    }
+	
+For all practical purposes we will have to define the login functionality in a base class as it will be used in every test case. so create a baseclass for the same and just extend it in your testng class.
+
+Also remember that when using Webdriver driver in if conditions declare them globally not inside the if condition.
+
+check properties_selenium.java and testing_inheritance_selenium.java files for its implementation.

@@ -1,0 +1,9 @@
+For checkboxes identification it is normal method,
+
+using xpath or css selector
+
+
+driver.findElement(By.Id("value")).isEnabled()
+this is used to check whether a checkbox is active or not.
+
+isSelected();

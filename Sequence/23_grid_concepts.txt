@@ -1,0 +1,35 @@
+Selenium Grid Concept:
+
+USage of hub and nodes to run scripts remotely in selenium.
+ It is most helpful in case of cross browser testing
+ 
+ First you need to download standalone server from seleniumhq
+ 
+ and then register the standalone in hub machine using this command
+ 
+ navigate to that folder
+ 
+ java -jar seleniuum_jar_file_name.jar -role hub
+ 
+ standalone server always runs on port 4444
+ try
+ http://localhost:4444/grid/console
+ 
+ this will tell us whether selenium server is up and running or not..
+ 
+ then download the standalone server in the node as wel.. then run 
+ java -jar stand_alone_server_jar.jar -role webdriver -hub http://192.168.0.102:4444/grid/register -port 5566
+ 
+ DesiredCapabilities capabilities = DesiredCapabilities.firefox();
+       capabilities.setCapability(FirefoxDriver.BINARY,new File("C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe").getAbsolutePath());
+    
+      driver = new RemoteWebDriver(new URL("http://192.168.0.106:5566/wd/hub"), capabilities);
+     
+     
+      
+        driver.get("http://google.com");
+        System.out.println(driver.getTitle());
+ 
+ 
+ 192.168.0.1.6:5566/wd/hub -> This is the URL of the node. Remember you always run the code in the hub and it runs in the node
+ 

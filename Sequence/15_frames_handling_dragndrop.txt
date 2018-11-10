@@ -1,0 +1,40 @@
+Handling frames:
+frames are containers that has elements. modern day webpages developers use frames.iframes is the tag name.
+by default selenium cannot identify the objects inside a frame, we need to explicitly mention to selenium to switch the control to frames in order to access the elements in it.
+
+use the below command to switch the control to frame
+
+driver.switchTo().frame(driver.findElement(By.xpath("//*[@id='content']/iframe")));
+
+u can also pass the element id to a WebElement abc and pass the abc to the above syntax.
+
+after switching the control to frames, u can identify the elements normally as you do.
+
+Please remember that when using working with frames, once the control is sent to frames, it remains there...if you need to come out of frame in order to access other elemensts in the webpage i.e outside frame.
+
+use this to change the control back to webpage.
+driver.switchTo().defaultContent();
+
+
+driver.switchTo().frame()-> this has 3 types options. two types has been covered above.
+
+third is 
+
+driver.switchTo().frame(0);
+
+this is passing the frame id so that that particular frame can be selected. remember, the frames count is like an array, starts with count 0. To find the number of frames in a page use this command.
+
+System.out.println(driver.findElements(By.tagName("iframe")).size());
+
+this will return the number of frames in the page and then select the particular fram that you want and pass it to the above syntax.
+
+drag and drop is a part of Actions class it is taken here, because usually objects used for drag and drop will generally be used inside a iframe.
+
+sample drag and drop action is mentioned below
+
+Actions act = new Actions(driver);
+WebElement source = driver.findElement(By.xpath());
+WebElement target = driver.findElement(By.xpath());
+act.dragAndDrop(source,target)
+.build()
+.perform();

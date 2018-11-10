@@ -1,0 +1,77 @@
+1) what makes selenium unique?
+open source
+multiple browsers
+multiple OS
+multiple languages.
+
+2) webdriver architechture
+
+interacts with browser in its native language, unlike the previous RC version in which there is a  proxy server and the server sends the instructions in javascript...
+for i.e it interacts in c#
+chrome in c++
+mozilla in java
+
+3) different verisons of selenium
+RC v1.0
+2.0
+3.0(latest)
+
+4) webbrowsers
+internet explorer
+firefox
+chrome
+safari
+opera(experimental)
+
+5) languages
+java pearl c# python ruby js
+
+6) webdriver interface
+
+webdriver is a interface.It has set of methods without classes. It depends on what type of browser im plannng to use. 
+	so for firefox i will use FirefoxDriver class to use the methods in WebDriver interface.
+
+7) methods in webdriver
+
+get()-go to URL
+getURL()-gets the URL of page
+getPageSource()-gets page source
+getTitle()-get title of page(Testing can be done)
+Quit()-Closes the browser.
+
+8) how do u run webapplications in firefox
+
+System.setProperty("webdriver.gecko.driver","//Users//lee//Downloads//geckdriver");
+WebDriver driver = new FirefoxDriver();
+
+9) Identify objects:
+by id
+by name
+by class
+by xpath
+by Link text
+by partial link text
+
+
+writing xpath id best way to use since sometims element id may change or certain websites may do dynamic intialization of variable names. that time this will be very useful. PFB custom writing xpaths without using extension.
+
+<input type="email" class="inputtext" name="email" id="email" tabindex="1" data-testid="royal_email">
+
+//input[@id='email']
+
+<input type="password" class="inputtext" name="pass" id="pass" tabindex="2" data-testid="royal_pass">
+
+//input[@id='pass']
+
+<input value="Log In" aria-label="Log In" tabindex="4" data-testid="royal_login_button" type="submit" id="u_0_2">
+
+//input[@value='Log In']
+
+
+//*[@id="reg-link"]
+
+<a href="/r.php?locale=en_GB&amp;display=page" rel="nofollow" id="reg-link">Sign up for Facebook</a>
+
+//a[@id='reg-link']
+
+//div[@id='reg_form_box']/div[1]/div[1]/div[2]/div/div/input

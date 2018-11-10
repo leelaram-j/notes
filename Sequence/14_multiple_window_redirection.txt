@@ -1,0 +1,31 @@
+Multiple windows redirection:
+
+Suppose while testing if we click on a certain page and it redirects to another page, the flow of control has to be redirected to the newly opened page. By default, selenium will not transfer the controls. we have to do it manually.
+
+sample scenario
+Parent window-> Child window redirection.
+first 
+Set<String> ids = driver.getWindowHandles();
+//this will return the list of windows that are opened and pass it to string ids.
+Iterator<String> its = ids.iterator();
+//this will then use the in built iterator function from java library to loop btn the window handles
+its.next();
+//this will cycle btn the window handles. Please remember this, it is like stack concept of data structure. data is arranged in stack like the below.
+
+top
+first row
+second row
+third row...
+
+so first, by default the control will be in top..so u need to use its.next() to switch the window handle to parent window...from there u can use next() command to cycle between the windows.
+define a variable to each parent and child so that it will be easier for identification and to switch.
+
+String parentId = its.next();
+String childId = its.next();
+
+once defined use the below command to switch to.
+
+driver.switchTo().window(parentId);
+driver.switchTo().window(ChildId);
+
+suppose there is a test case where you need to check whether it has redirected properly, use driver.getTitle() to verify whether the page has been redirected successfully.

@@ -1,0 +1,13 @@
+For static checkboxes u can use select class to find elements,
+
+syntax
+Select S = new Select(xpath);
+
+please note that only this will work when there is a select class with option...
+
+multiple options available to select a item from drop down.
+
+You can use selectByValue()
+selectByIndex()
+selectByVisibleText()
+And many more options are available...need to check that as well..

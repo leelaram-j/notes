@@ -1,0 +1,22 @@
+Websites has java alerts/popups that needs to be clicked in order go to next website.
+
+if u right click on them and select inspect element, u cannot see the code as they are handled by javascripts.
+
+in such cases it can be handled by using
+
+driver.switchTo().alert().accept();
+
+switchTo() will change the control of the function from html to js...switchTo() has other options as well check them out.
+
+
+dismiss()
+getText()
+sendKeys() etc
+
+Alert alert = driver.switchTo().alert();
+System.out.println(alert.getText());
+alert.accept();
+
+ driver.switchTo().alert().accept(); for positive scenarios
+        //driver.switchTo().alert().sendKeys("jdfsdfjdsfjsdjhfdsjfhdsj");
+        //driver.switchTo().alert().dismiss(); This is done to dismiss changes or ignore or negative scenario buttons

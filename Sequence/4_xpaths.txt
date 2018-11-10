@@ -1,0 +1,58 @@
+xpath interview questions;
+
+Relative and absolute xpath :
+
+xpath is address through which we traverse to find an element
+
+relative xpath does not depend on parent node.
+
+absolute xpath-we will traverse to the element with the help of parent nodes
+parent-child relationship
+
+we will have to write entire the xpath url...top to desired element traversing through nodes is absolute xpath.
+
+
+Always relative xpath is preferred than absolute xpath..since any time dev may change the code of webpage then the entire xpath breaks.
+
+Next question:
+
+How to traverse to sibling node using xpath
+
+in which scenario do we use id changind scenario
+
+sample sibling eg.
+//li[@id='tablist1-tab1']/following-sibling::li[1]
+
+traversing between sibings in xpath
+driver.findElement(By.xpath("//li[@id='tablist1-tab2']/preceding-sibling::li[1]")).click();
+
+Identifying parent xpath using child
+syntax:
+child xpath/parent::tag name
+
+Identifying the element using text()--> this can be used to select element with the text mentioned in it.
+syntax: //*[text()='sample_text']
+
+for eg. //*[text()='Go']
+This will select the element with text Go in it...but make sure there is no other word like this. This is case sensitive and space sensitive.
+
+what is the major difference between css and xpath?
+in xpath u can traverse backwards, whereas in css u cannot traverse backwards
+
+
+xpath functions
+
+you can write xpaths like this
+//input[starts-with(@id,'u_')]
+this will select the element starting with u_. this is very helpful if we want to find a element with dynamic name/id
+
+in similar way we can write
+//input[ends-with(@id,'_u')]
+this can be used if the starting name of an element is dynamic
+
+in similar way if an element id has both starting and ending dynamic values then we can use
+//input[contains(@id,'_u')]
+This will search for element that has _u and select it.
+
+For multiple attributes selection you can use and operator.
+eg. //input[@attribute1='value1' and @attribute2='value2']

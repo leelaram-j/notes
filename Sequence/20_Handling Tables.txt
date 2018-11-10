@@ -1,0 +1,23 @@
+Managing tables in selenium.
+
+first you need to identify table and pass it to a WebElement in order to limit the scope of it to an element name.
+then you need to use findelements and by.tagname tr to get the number of rows of a table. and then use a for loop to switch between the rows and get the count/number of columns in each row.
+If you need the list of column values in each row you need to use the getText() method to fetch the values. This is especially useful if you need the list of table values to be evaluated. PFB sample code for traversing in table
+
+driver.get("https://wet-boew.github.io/v4.0-ci/demos/tables/tables-en.html");
+        WebElement table = driver.findElement(By.xpath("//*[@id='wb-auto-1']"));
+        List<WebElement> no_of_rows = table.findElements(By.tagName("tr"));
+        System.out.println("No of rows in the table is "+no_of_rows.size());
+        for(WebElement each_row:no_of_rows)
+        {
+            int i=0;
+            i++;
+            List<WebElement> no_of_columns = each_row.findElements(By.tagName("td"));
+            System.out.println("no of columns in row "+i+" is "+no_of_columns.size());
+            for(WebElement text:no_of_columns)
+            {
+                System.out.println(text.getText());
+            }
+        }
+		
+More data available in handling_webTable.java file

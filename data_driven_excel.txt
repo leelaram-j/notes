@@ -1,0 +1,71 @@
+Data driven testing:
+
+fetching data from excel:
+poi api jars
+
+first get the data ready
+
+Hierarchy
+
+WorkBook
+Sheet
+Row
+Column
+
+remember to import all poi api jars into the project.
+always remember to write a separate class for excel extraction; generic method; possibly in separate package.
+always keep your test data in a separate package.
+
+see below code:
+
+Method 1:
+
+	static Workbook book;
+    static Sheet sheet;
+    public static String testDataSheetPath = "/Users/lee/eclipse-workspace/Framework/src/com/qa/testData/Sample_Excel.xlsx";
+
+    public static Object[][] getTestData(String sheetName) throws Exception
+    {
+        FileInputStream fis = null;
+        fis= new FileInputStream(testDataSheetPath);
+        book = WorkbookFactory.create(fis);
+        sheet = book.getSheet(sheetName);
+        Object[][] data = new Object[sheet.getLastRowNum()][sheet.getRow(0).getLastCellNum()];
+        System.out.println("Last row number = "+sheet.getLastRowNum());
+        System.out.println("Lastcolumn number = "+sheet.getRow(0).getLastCellNum());
+
+        for(int i=0;i<sheet.getLastRowNum();i++)
+        {
+            for(int j=0;j<sheet.getRow(i).getLastCellNum();j++)
+            {
+                data[i][j] = sheet.getRow(i).getCell(j).toString();
+            }
+        }
+        return data;
+    }
+
+Method 2:
+
+   public static XSSFWorkbook wb;
+    public static XSSFSheet sheet;
+    public static XSSFRow row;
+    public static XSSFCell cell;
+    public static FileInputStream fis;
+
+    public static void main(String[] args) throws Exception
+    {
+//        System.setProperty("webdriver.gecko.driver","//Users//lee//Downloads/geckodriver");
+//        WebDriver driver= new FirefoxDriver();
+//        driver.get("https://www.gmail.com");
+        fis = new FileInputStream("//Users//lee//Downloads//Sample_Excel.xlsx");
+        String value= getCellData(0,0);
+        System.out.println(value);
+    }
+
+    public static String getCellData(int rownum, int col) throws IOException {
+        wb = new XSSFWorkbook(fis);
+        sheet =wb.getSheet("script");
+        row=sheet.getRow(rownum);
+        cell=row.getCell(col);
+        return cell.getStringCellValue();
+    }

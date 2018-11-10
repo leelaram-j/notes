@@ -1,0 +1,65 @@
+Handling cookies and untrusted websites ie. https certifications
+
+first we can manage cookies by using driver.manag().getCookies();
+or deleteAllCookies() and other cookie commands. use size() to check whether cookies are deleted are not.
+
+sample code
+
+		Set<Cookie> abc = driver.manage().getCookies();
+        System.out.println(abc.size());
+        System.out.println(abc);
+        driver.manage().deleteAllCookies();
+        Set<Cookie> abcd = driver.manage().getCookies();
+        System.out.println(abcd.size());
+        System.out.println(abcd);
+		
+		
+handling certification:
+
+Shd check how it is hndled in latest versions of software.
+
+For firefox use
+
+FirefoxProfile prof = new FireFoxProfile();
+prof.setAcceptUntrustedCertificates(false);
+WebDriver driver = new FireFoxDriver(prof);
+
+pass the profile created to the new firefox browser.
+
+For Chrome
+
+ // Create object of DesiredCapabilities class
+DesiredCapabilities cap=DesiredCapabilities.chrome();
+ 
+// Set ACCEPT_SSL_CERTS  variable to true
+cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+ 
+// Set the driver path
+System.setProperty("webdriver.chrome.driver","Chrome driver path");
+ 
+// Open browser with capability
+WebDriver driver=new ChromeDriver(cap);
+
+
+For Safari
+
+
+// Create object of DesiredCapabilities class
+
+DesiredCapabilities cap=DesiredCapabilities.safari();
+
+// Set ACCEPT_SSL_CERTS  variable to true
+cap.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+
+// Set the driver path
+System.setProperty("webdriver.safari.driver","Safari driver path");
+
+// Open browser with capability
+WebDriver driver=new SafariDriver(cap);
+
+
+
+DesiredCapabilities cap = new DesiredCapabilities().merge(DesiredCapabilities.firefox());
+cap.acceptInsecureCerts();
+FirefoxDriver driverF = new FirefoxDriver(cap);
+driverF.get("https://expired.badssl.com/");

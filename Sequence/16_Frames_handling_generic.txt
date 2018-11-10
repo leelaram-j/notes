@@ -1,0 +1,36 @@
+Concept of handling frames:
+Frames are part of advanced concepts.
+Always remember that when using frames you need to first switch to them in order to use it.
+Standard way is always create a generic function to get the frame count and the proper frame id so that the same can be used in a test case to switch to that frame. Also remember that when dealing with frames you need to be careful to switch back to defalt content in order to use the select the contents outside frame.
+
+But when switching to a frame inside another frame you dont have the need to switch back. you can directly access them from the selected frame.
+
+generic function sample code:
+
+public static int returnFrameId(WebDriver driver, By by)
+    {
+        int i;
+        int frameCount = driver.findElements(By.tagName("iframe")).size();
+        for(i=0;i<frameCount;i++)
+        {
+            driver.switchTo().frame(i);
+            int count = driver.findElements(by).size();
+            if(count>0)
+            {
+                break;
+            }
+            else
+            {
+                System.out.println("Continue looping");
+            }
+        }
+        driver.switchTo().defaultContent();
+        return i;
+    }
+	
+
+In the above function, we pass the driver and the By function i.e By.xpath("//*[@id='live']")
+
+I tried passing webelement to the same function and was not able to complete the function.
+
+For sample code, check recaptcha_generic_2.java file. It has a sample implementation method of google captcha technology.

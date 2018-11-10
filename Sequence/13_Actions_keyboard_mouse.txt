@@ -1,0 +1,33 @@
+Actions class in selenium web driver:
+to handle mouse over and keyboard interactions
+user gestures
+
+mouse over: to move mouse over specific element;context click in mouse(right click),(double click)
+
+-Start-
+first we should invocate Actions class as they handle these sort of mouse/keyboard interactions.
+syntax:
+Actions a = new Actions(driver); //passdriver variable so that a can have driver capabilities.
+next
+
+a.moveToElement(id of element).build().perform();
+
+build()-> it is used to build the action that is defined, but it will not execute the step.
+perform()-> this will perform the action that is built.
+
+build() and perform()->will always be used as composite statement.
+
+for eg if we need to send a data in capital, we can use
+
+a.moveToElement(id of element).click()
+.keysDown(Keys.SHIFT)
+.sendKeys("hello")
+.doubleClick() // to double click the enetered text
+.build()
+.perform();
+
+above command is used to select the text that is eneterd in a particualr textbox.
+
+contextClick()-> this is used to right click an element
+
+there are other options as well... please explore them.

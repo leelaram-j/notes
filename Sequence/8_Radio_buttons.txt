@@ -1,0 +1,35 @@
+Radio buttons.
+it is same as checkbox, u can use the option to check whether it s enable or not using 
+isEnable()
+isSelected()
+
+dont forgoet to use syso to get the o/p of the above functions as they return true or false
+
+U can even use them in if conditions to check or validate them.
+
+The most important function is size()
+this function is used to get the number of radio buttons with same class names/values.
+
+use syso to get the count of radio buttons in the page.
+
+use findElements to get thelist of elements to an array. eg if u have 3 radio buttons and u need to click the third one and u dont have the name or id or value attribute, in that case you can use findElements()
+
+sample
+driver.findElements(By.cssSelector("[name='group1']")).size to get the count of elements under that group name
+
+driver.findElements(By.cssSelector("[name='group1']")).get(i)
+
+where i is the iterate in for loop that can be used to select the element/click it.
+
+driver.findElements(By.cssSelector("[name='group1']")).get(i).getAttribute("value")
+
+in place of value put the attribute for which u need the data and pass the value to a string, then u can either print it or use it in if condition or any other to do logixal tests accordingly.
+
+eg.
+if(s.equals("Cheese"))
+{
+driver.findElements(By.cssSelector("[name='group1']")).get(i).click();
+}
+
+
+refer coderadio_button for details.

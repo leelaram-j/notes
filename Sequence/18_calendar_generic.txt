@@ -1,0 +1,33 @@
+calendar generic way:
+
+first select month before going to date. get 
+
+public static void main(String [] args)
+    {
+        System.setProperty("webdriver.chrome.driver","//Users//lee//Downloads//chromedriver");
+        WebDriver driver = new ChromeDriver();
+        driver.get("http://www.spicejet.com");
+        driver.findElement(By.name("ctl00$mainContent$view_date1")).click();
+        WebElement month = driver.findElement(By.cssSelector("[class='ui-datepicker-month']"));
+        //sep 23
+
+        while(!month.getText().equalsIgnoreCase("november"))
+        {
+            driver.findElement(By.cssSelector("[class='ui-datepicker-next ui-corner-all']")).click();
+        }
+        List<WebElement> dates = driver.findElements(By.className("ui-state-default"));
+        System.out.print("element found");
+        int count = driver.findElements(By.className("ui-state-default")).size();
+        for(int i=0;i<count;i++)
+        {
+            String text = driver.findElements(By.className("ui-state-default")).get(i).getText();
+           //WebElement currentDate = driver.findElements(By.className(".ui-state-default")).get(i);
+            System.out.print(text+"\n");
+            if(text.equalsIgnoreCase("16"))
+            {
+                driver.findElements(By.className("ui-state-default")).get(i).click();
+                break;
+            }
+
+        }
+    }

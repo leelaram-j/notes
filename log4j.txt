@@ -1,0 +1,18 @@
+Apache log4j:
+It is an reliable fast and flexible logging framework(API) written in java, distributed by apache.
+
+why?
+send the entire logs
+log only when there is an error for package A
+log entire messages for package B
+i want logs with timestamp
+I want the log file of last week.
+how will i know abt errors just by looking at logs
+
+
+
+where to log? Appenders tag_ console
+what to log  Loggers tag section section
+how to log? Appenders tag_ console
+
+Need to view the lectures

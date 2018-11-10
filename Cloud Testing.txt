@@ -1,0 +1,32 @@
+Cloud based testing:
+sauce labs can be used.
+
+Executing selenium test cases in different combinations. diff os and diff browsers
+running test cases with the help of 3rd party vendor.
+DesireCapabilities class...main in using cloud based testing/hub-node scenario
+
+Cloud testing and the selenium grid concept testing are the same, only difference is that url change.
+
+Sauce Labs - cloud-based service to run Selenium tests faster and more easily.
+BrowserStack - Selenium cloud testing in 300+ Real Desktop and Mobile Browsers.
+TestingBot - easy cross browser testing with Selenium in the cloud.
+Spoonium - unlimited Selenium testing on all major browsers.
+CrossBrowserTesting - test Selenium on 1000+ browsers and devices in the cloud.
+Ranorex - test automation framework with Selenium WebDriver plug-in to easily create and manage tests and run them on Selenium-supported platforms and browsers.
+Selocity - Free Chrome browser extension to auto-generate robust CSS, XPath, link text, and RanoreXPath selectors.
+
+some of the above helps us in running the selenium tests online. saucelabs testing bot,crossbrowsertesting etc.
+
+A good practise while running the selenium automated test cases in cloud would be to define login functionality separately in a class or a function. and call the same in our program. pFB sample code.
+
+public static void setup() throws Exception
+    {
+        DesiredCapabilities dc = DesiredCapabilities.firefox();
+        dc.setCapability("version","5");
+        dc.setCapability("platform","Linux");
+        WebDriver driver = new RemoteWebDriver(new URL("http://uniformtangofoxtrot:96abb7b5-f73d-4bc8-b396-47586662fe45@ondemand.saucelabs.com:80/wd/hub")
+                ,dc);
+        driver.get("https://www.google.com");
+        System.out.println(driver.getTitle());
+        //driver.quit();
+    }
