@@ -11,3 +11,6 @@ You can use selectByValue()
 selectByIndex()
 selectByVisibleText()
 And many more options are available...need to check that as well..
+
+
+Select s = new Select(driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency")));

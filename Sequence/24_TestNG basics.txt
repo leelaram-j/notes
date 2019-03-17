@@ -19,30 +19,28 @@ used in developing framework.
 7) also integrate testNG with other tools like jenkins to schedule the test cases.
 8) testng helps us in creating a framework
 
+execute multiple tests from one file
+modularize test cases based upon fucntionality and trigger them accordingly
+
+
 http://beust.com/eclipse use this in add/install software from help menu to install testNG. For intellij idea TestNG is installed by default.
 9) single file you can write multiple test cases.
 10) by default testng execution are in  alphabetical order.
 
-Annotations:
+Basic testng format:
 
-@Test-> for test cases followed by function in which steps are written
-@BeforeTest-> for executing some prerequisites before running a test case, note: It only runs once.
-@BeforeMethod-> for executing some prerequisites before running every test case.
-@AfterTest-> for executing some steps after running all the tests, note: It only runs once.
-@AfterMethod->for executing postrequsites after running every test 
-@BeforeSuite-> It will run before the entire test suite is executed.
-@AfterSuite-> It will run after the entire test suite is executed.
+@Test
+public void demo()
+{
+System.out.println("Sample test");
+}
+name of the function is the test case name.
 
-Dependency Attributes:
+Very important part in testng is testng xml file.
+TestNG XML filee:
 
-This is used for prioritizing the test cases. or change the order of execution.
-
-@Test(dependsOnMethods={"function_name"})-> the following test function will run only if the function_name is success.
-@Test(enabled=false)-> this test will be skipped, if true the test will run.
-@Test(dependsOnMethods ={"function_name"},alwaysRun=true)-> the following test would be run even if the function_name has failed. but this test will run only after function_name.
-@Test(timeOut=5000)-> this is set a time out for that function, even though the script executes but executing time is more than 5 seconds(5000 milli seconds) then it will show as fail.
-
-TestNG XML file:
+Structure:
+Test Suite-->TEst Folder(Module)-->test cases
 
 It has the configuration to run which tests/.class files. We can create a list of test cases and run them alone. for eg. if a build is ready and deployed, we can run a smoke test cases suite and test that alone.
 
@@ -62,80 +60,24 @@ suppose you need to run test cases starting with certain alphabets then we can e
 
 eg <class name ="anno.*"
 
+Excluding a particular test from the class, so that remaining tests can be run.
+<class name="test.day3">
+<methods>
+	<exclude name="tests_to_be_ignored"/>
+</methods>
+</class>
 
-Group feature in TestNG:
+testng.xml file structure
+<xml tag>
+<suite>
+	<test>
+		<classes>
+			<class>
+				<methods>
+					<exclude>
 
-It is helpful in running priority testcases, we can assign priority for test cases like P1 or P2
-@Test(groups="Priority 1")
-this is like setting a tag for certain cases and you can use this tag and run those test cases alone.
 
-<?xml version="1.0" encoding="UTF-8" ?>
-<suite name="Automation Testing">
-    <test name="Smoke Testing with groups">
-        <groups>
-            <run>
-                <include name="Priority1"/>
-            </run>
-        </groups>
-        <classes>
-            <class name="TestNGFiles.annotations">
-            </class>
-            <class name = "TestNGFiles.annotations1"></class>
-        </classes>
-    </test>
-</suite>
 
-the above code will run test cases which has Priority1 tag alone
 
-Parameterisation in TestNG:
 
-tests can be parameterized. It can done in 2 methods,
-one via xml file.
-second via @DataProvider
-
-First:
-<?xml version="1.0" encoding="UTF-8" ?>
-<suite name = "Automation Suite">
-    <test name = "Smoke Test">
-        <parameter name ="adminUserId" value="abcd" />
-        <classes>
-            <class name="TestNGFiles.parameters_from_xml" />
-        </classes>
-    </test>
-</suite>
-
-pass the parameter in the xml file. next in the test @Test command use this
-
-@Test
-    @Parameters({"adminUserId"})
-    public void test1(String adminUserId)
-    {
-        System.out.print("The admin User Id is "+adminUserId+"\n");
-    }
-	
-This would be helpful. either the value can be passed globally or for a particular class. This has to be mentioned in the XML file.
-
-Second:
-create a @DataProvider function as below
-@DataProvider
-    public Object[][] getData()
-    {
-        // Object [i][j] means i->number of time the test should run,j means no. of parameters for a single run
-        Object[][] data = new Object[2][2];
-        data [0][0]="1abcd";
-        data [0][1]="1xyz";
-        data [1][0]="2abcd";
-        data [1][1]="2xyz";
-        return data;
-    }
-
-and before the test call it as seen below.
-	
-	@Test(dataProvider = "getData")
-	public void test112(String username,String password)
-	{
-		System.out.println("User name is "+username+" and password is "+password);
-	}
-
-Always remember in both methods the number of parameters passed in the test should be equal with the number of parameters passed in xml file or in the @DataProvider function.
 
