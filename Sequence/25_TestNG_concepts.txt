@@ -8,6 +8,8 @@ Annotations:
 @BeforeSuite-> It will run before the entire test suite is executed.
 @AfterSuite-> It will run after the entire test suite is executed.
 
+The scope of AfterTest--> if the after test annotation is written in a class, and the same class is used in test module in xml...after test will execute after the module is executed, before starting the next module. this is an expected thing.
+
 Dependency Attributes:
 
 This is used for prioritizing the test cases. or change the order of execution.

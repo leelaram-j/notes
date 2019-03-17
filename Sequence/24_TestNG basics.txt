@@ -21,6 +21,7 @@ used in developing framework.
 
 execute multiple tests from one file
 modularize test cases based upon fucntionality and trigger them accordingly
+controlling the flow-- running specific tests and ignoring the remaining.
 
 
 http://beust.com/eclipse use this in add/install software from help menu to install testNG. For intellij idea TestNG is installed by default.
@@ -60,6 +61,8 @@ suppose you need to run test cases starting with certain alphabets then we can e
 
 eg <class name ="anno.*"
 
+the above is really helpful when set of test cases need to be removed or executed.
+
 Excluding a particular test from the class, so that remaining tests can be run.
 <class name="test.day3">
 <methods>
@@ -74,9 +77,15 @@ testng.xml file structure
 		<classes>
 			<class>
 				<methods>
-					<exclude>
+					<exclude>-->this is used to exclude certain test cases
+					<include>-->this is used to include certain test cases
+					without include and exclude the xml will execute all the tests in the class.
 
+sample code:
+<exclude name="mobile.*"/>
+this will remove all the tests that starts with mobile
 
+We can even run the test cases from package level
 
 
 
