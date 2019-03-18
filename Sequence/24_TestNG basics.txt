@@ -85,8 +85,4 @@ sample code:
 <exclude name="mobile.*"/>
 this will remove all the tests that starts with mobile
 
-We can even run the test cases from package level
-
-
-
-
+We can even run the test cases from package level as well.

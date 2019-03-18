@@ -7,8 +7,29 @@ Annotations:
 @AfterMethod->for executing postrequsites after running every test 
 @BeforeSuite-> It will run before the entire test suite is executed.
 @AfterSuite-> It will run after the entire test suite is executed.
+@BeforeClass-> before running any methods in that class, before class content will be executed
+@AfterClass-> after executing all the methods in that class. if that class after method function, after class will run after that has been executed.
 
 The scope of AfterTest--> if the after test annotation is written in a class, and the same class is used in test module in xml...after test will execute after the module is executed, before starting the next module. this is an expected thing.
+
+Scope of Before Suite--> it is the scope of entire test suite, writting it in a class is enough..if we run before the entire suite.same goes for After suite but it executes after the test suite is completed.
+
+
+Points to remember:
+@AfterMethod,@BeforeMethod,@BeforeClass,@AfterClass--> controled at class level
+@BeforeTest,@AfterTest,@AfterSuite,@BeforeSuite--> controlled at testng xml file level
+In testng order of execution of tests depend upon the alphabetical order
+
+
+Interview question:
+
+diff btn before method and before test
+
+before method:
+it runs before every method in that class...It is specific to a class. the same goes with after method.runs before everymethod in that class specified in the xml file, but specific only to that class.
+
+before test:
+it runs before the test execution specfified in the testng xml file. teh same goes for the after test method. the scope is that of the test module mentioned in the testng xml file.
 
 Dependency Attributes:
 
@@ -42,57 +63,21 @@ this is like setting a tag for certain cases and you can use this tag and run th
     </test>
 </suite>
 
-the above code will run test cases which has Priority1 tag alone
+the above code will run test cases which has Priority1 tag alone. In the above code we can also exclude to stop executing certain test cases.
 
-Parameterisation in TestNG:
+Helper attributes for tests in testng:
+dependsOn
+enabled
+timeOut
 
-tests can be parameterized. It can done in 2 methods,
-one via xml file.
-second via @DataProvider
+Also there might be a situation where we need to run a test case before another, simply put; one depend on the success of another test.
 
-First:
-<?xml version="1.0" encoding="UTF-8" ?>
-<suite name = "Automation Suite">
-    <test name = "Smoke Test">
-        <parameter name ="adminUserId" value="abcd" />
-        <classes>
-            <class name="TestNGFiles.parameters_from_xml" />
-        </classes>
-    </test>
-</suite>
+In that scenario use @Test(dependsOnMethods="testfunctionname") see repo learning_framework for the usasge. tweak the execution order. You can even add multiple dependency methods.
 
-pass the parameter in the xml file. next in the test @Test command use this
+@Test(enabled=false)
 
-@Test
-    @Parameters({"adminUserId"})
-    public void test1(String adminUserId)
-    {
-        System.out.print("The admin User Id is "+adminUserId+"\n");
-    }
-	
-This would be helpful. either the value can be passed globally or for a particular class. This has to be mentioned in the XML file.
+Interview question
+enabled-->false will stop test from executing
 
-Second:
-create a @DataProvider function as below
-@DataProvider
-    public Object[][] getData()
-    {
-        // Object [i][j] means i->number of time the test should run,j means no. of parameters for a single run
-        Object[][] data = new Object[2][2];
-        data [0][0]="1abcd";
-        data [0][1]="1xyz";
-        data [1][0]="2abcd";
-        data [1][1]="2xyz";
-        return data;
-    }
-
-and before the test call it as seen below.
-	
-	@Test(dataProvider = "getData")
-	public void test112(String username,String password)
-	{
-		System.out.println("User name is "+username+" and password is "+password);
-	}
-
-Always remember in both methods the number of parameters passed in the test should be equal with the number of parameters passed in xml file or in the @DataProvider function.
-
+@Test(timeOut=4000)
+waits for maximum of 40 seconds.

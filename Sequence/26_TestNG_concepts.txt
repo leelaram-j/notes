@@ -1,0 +1,67 @@
+Parameterisation in TestNG:
+
+General rules of framework is that certain repeated data should not be hardcoded. They should be in a centralized place and should be used as and when needed. urls,usernames,passwords etc
+
+
+tests can be parameterized. It can done in 2 methods,
+one via xml file.
+second via @DataProvider
+
+First:
+<?xml version="1.0" encoding="UTF-8" ?>
+<suite name = "Automation Suite">
+    <test name = "Smoke Test">
+        <parameter name ="adminUserId" value="abcd" />
+        <classes>
+            <class name="TestNGFiles.parameters_from_xml" />
+        </classes>
+    </test>
+</suite>
+
+pass the parameter in the xml file. next in the test @Test command use this
+
+@Test
+    @Parameters({"adminUserId"})
+    public void test1(String adminUserId)
+    {
+        System.out.print("The admin User Id is "+adminUserId+"\n");
+    }
+	
+This would be helpful. either the value can be passed globally or for a particular class. This has to be mentioned in the XML file.
+
+Test level parameterization in xml file
+Suite level parameteriztion in xml file
+
+Adding multiple parameterization using the below code
+@Test
+    @Parameters({"adminUserId,adminUserName"})
+    public void test1(String adminUserId)
+    {
+        System.out.print("The admin User Id is "+adminUserId+"\n");
+		System.out.print("The admin User Name is "+adminUserName+"\n");
+    }
+
+
+Second:
+create a @DataProvider function as below
+@DataProvider
+    public Object[][] getData()
+    {
+        // Object [i][j] means i->number of time the test should run,j means no. of parameters for a single run
+        Object[][] data = new Object[2][2];
+        data [0][0]="1abcd";
+        data [0][1]="1xyz";
+        data [1][0]="2abcd";
+        data [1][1]="2xyz";
+        return data;
+    }
+
+and before the test call it as seen below.
+	
+	@Test(dataProvider = "getData")
+	public void test112(String username,String password)
+	{
+		System.out.println("User name is "+username+" and password is "+password);
+	}
+
+Always remember in both methods the number of parameters passed in the test should be equal with the number of parameters passed in xml file or in the @DataProvider function.
