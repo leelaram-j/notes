@@ -4,7 +4,7 @@ General rules of framework is that certain repeated data should not be hardcoded
 
 
 tests can be parameterized. It can done in 2 methods,
-one via xml file.
+one via testNG xml file.
 second via @DataProvider
 
 First:
@@ -49,10 +49,10 @@ create a @DataProvider function as below
     {
         // Object [i][j] means i->number of time the test should run,j means no. of parameters for a single run
         Object[][] data = new Object[2][2];
-        data [0][0]="1abcd";
-        data [0][1]="1xyz";
-        data [1][0]="2abcd";
-        data [1][1]="2xyz";
+        data [0][0]="user1";
+        data [0][1]="password1";
+        data [1][0]="user2";
+        data [1][1]="password2";
         return data;
     }
 
@@ -65,3 +65,23 @@ and before the test call it as seen below.
 	}
 
 Always remember in both methods the number of parameters passed in the test should be equal with the number of parameters passed in xml file or in the @DataProvider function.
+
+TestNG Listeners:
+
+Adding Listeners to execution, this helps us in monitoring certain actions.
+eg. if test case fails, it needs to take a screenshots
+eg. if REST API fails, we need to get logs..
+
+Listeners listen to test case execution, if the execution fails it triggers a set of code block, if it passes it will trigger another code block.
+
+
+Parallel Testing Concept:
+run tests in a parallel way. This is not a optimized way of running the code. but in certain cases where we need to run tests parallely we can use this.
+This can be controlled in testng xml file using the below attribute in suite level.
+
+<suite name="smoketesting" parallel="tests" thread-count="2">
+
+even the same can be done for classes as well
+<test name="smokeTest" parallel="classes" thread-count="2">
+this will run classes inside the tests parallely.
+
