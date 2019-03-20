@@ -1,0 +1,73 @@
+Integrating Maven with testng xml file.
+ remember in order to integrate the same, first you should create a testng xml file, refer previous notes if you have any doubts.
+ 
+ next remember to add the below code in the pom.xml file
+ 
+ <dependency>
+       <groupId>org.testng</groupId>
+       <artifactId>testng</artifactId>
+       <version>6.9.8</version>
+       <scope>test</scope>
+     </dependency>
+	 
+	 this code can be got from surefire plugin page, using testng section
+
+https://maven.apache.org/surefire/maven-surefire-plugin/examples/testng.html
+
+running a single class
+https://maven.apache.org/surefire/maven-surefire-plugin/examples/single-test.html
+
+mvn -Dtest=SampleTest test
+
+this command will run only tests from a particular class file, check teh above link for full documentation.
+
+
+Profiling Scenario inmaven
+
+
+supoose we prepared one testng xml file for smoke test and one for regression.take the case of Maven Tutorial project. it has 2 xml files
+testng.xml--> runs only 1 class
+regression.xml-> it runs 2 classes
+
+we can create a profile in pom.xml file which will help us to run a certain xml file.
+
+add <profiles> tag
+
+<profiles>
+<profile>
+          <id>Smoke</id>
+          <build>
+              <pluginManagement>
+                  <plugins>
+                      <plugin>
+                          <groupId>org.apache.maven.plugins</groupId>
+                          <artifactId>maven-surefire-plugin</artifactId>
+                          <version>3.0.0-M3</version>
+                          <configuration>
+                              <suiteXmlFiles>
+                                  <suiteXmlFile>testng.xml</suiteXmlFile>
+                              </suiteXmlFiles>
+                          </configuration>
+                      </plugin>
+                      <plugin>
+                          <groupId>org.apache.maven.plugins</groupId>
+                          <artifactId>maven-compiler-plugin</artifactId>
+                          <configuration>
+                              <compilerVersion>1.5</compilerVersion>
+                              <source>6</source>
+                              <target>1.6</target>
+                          </configuration>
+                      </plugin>
+                  </plugins>
+              </pluginManagement>
+          </build>
+      </profile>
+</profile>
+
+
+like this we can create separate profiles for each type of test run.
+
+
+afer that while running the test via maven use the below command
+
+mvn test -PSmoke

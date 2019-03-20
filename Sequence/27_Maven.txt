@@ -1,9 +1,24 @@
-Maven:
+Apache Maven:
+
+Software project management and build management tool java frameworks
+
 advantages:
 central repository. with maven we need not import test cases. POM.xml for maven.
 we will give the dependencies of selenoum and we will give other dependencies. maven will itself take care of the rest. It will itself go to the web and download the required jars and save them to the folder. It will take care of the dependencies.
 
-maven central repository.
+https://mvnrepository.com
+
+jars should not be harcoded, in real life. 
+
+
+maven central repository to get dependencies.
+maintaining common structure across the organization.
+Flexibility in integration with CI tools.
+Plugins for Test Framework Execution.
+- usage of testng anf junit
+
+google search: maven in 5 mins
+https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
 
 paste the dependency code in the xml file.
 
@@ -13,9 +28,21 @@ good integration with testng
 
 good integration with jenkins
 
+Maven Terminologies:
+
+group Id: this determines the project uniquely
+Artifacts: usually the jar file, that gets deployed to a maven repository, subproject id. cos in project selenium there can be there many sub id's
+version: the required version for the sub project selected.
+archtype:generate -> this generates a new project from an archtype
+
+mvn archtype:generate -DgroupId=com.mycompany.app -DartifactId=my-app -DarchetypeArtifactId=maven-quickstart -DinteractiveMode=false
+
+Interview Question:
+In the above command--> groupId will be the name of the package whereas artifactId will be the name of the Project
+
 starting:
 
-mvn -verison-> to check the installationof maven
+mvn -verison-> to check the installation of maven
 
 navigate to the folder.
 mvn archetype:generate
@@ -125,6 +152,15 @@ sample pom.xml file PFB.
   </build>
 </project>
 
+Interview question:
+maven sure fire plugin
+it is must for running maven tests. without this we cant run tests. It must be in parent POM file in case if 2 POM files are used.
+
+mvn clean--> this will clear the previous builds temp files or buils etc...
+mvn compile--> it will compile the code and tells us if there are any compilation issues.
+mvn test--> It will start execution of tests.
+
+maven algorithm, it expects the class name to end with Test.java, the only it recognizes the class file else it wont run the tests.
 
 
 Once this is done here in the above testng.xml is the xml file which defines which all test needed to be run. we can speicfy which all packages needed to be run. We can also specify to run 2 xml files at one time.
