@@ -2,7 +2,7 @@ Jenkins:
 
 Continous Integrtion tool.
 used to schedule test execution.
-It will acees the central repository and run the test cases as scheduled.
+It will access the central repository and run the test cases as scheduled.
 
 Continious Integration Tool -Jenkins
 
@@ -11,8 +11,6 @@ Continious Integration Tool -Jenkins
 _reports
 
 Mail-
-
-latest jenking version is having issues with java 10. so used previous version. Always try the latest version and if that doesnt workout then use the
 
 Jenkins Command:
 
@@ -46,3 +44,6 @@ DAYWEEK Day of the week (0-7) where 0 and 7 are sunday
 If you want to shedule your build every 5 minutes, this will do the job : */5 * * * *
 
 If you want to shedule your build every day at 8h00, this will do the job : 0 8 * * *
+
+remember important thing while trying to configure jenkins is the jdk home, maven home and git..
+java -jar jenkins.war --enable-future-java
