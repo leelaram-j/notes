@@ -15,4 +15,32 @@ where to log? Appenders tag_ console
 what to log  Loggers tag section section
 how to log? Appenders tag_ console
 
-Need to view the lectures
+remember when downloading the log4j jars...u need to add only 2 jars in ur project.
+
+lo4j-api-current_version.jar
+log4j-core-current_version.jar
+
+when using log4j be sure to import 
+
+import org.apache.logging.log4j.*;
+
+cos LogManager is available in 2 packages one in java.util and another one is in org.apache.logging.log4j. So select the second one.
+
+Appenders and Loggers
+
+
+Log4j xml file
+
+how to log? in appenders tag
+where to Log?  in appenders tag
+Appenders Tag_Console Tag_Pattern tag
+
+log in console window
+
+if it is console window , we use Consoole tag inside appenders tag, we can customize the pattern in which the log message is displayed inside pattern tag. 
+
+log in separate file(real time)
+
+what to Log? in Loggers tag
+Loggers tag_Root tag
+root tag represents the master level(entire file)
