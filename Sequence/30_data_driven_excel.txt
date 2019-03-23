@@ -3,6 +3,9 @@ Data driven testing:
 fetching data from excel:
 poi api jars
 
+
+
+
 first get the data ready
 
 Hierarchy
@@ -69,3 +72,23 @@ Method 2:
         cell=row.getCell(col);
         return cell.getStringCellValue();
     }
+	
+	
+Maven Method: most easy and commonly used across industry
+
+maven dependencies:
+poi
+poi-ooxml
+
+Strategy to Access Excel Data:
+create XSSFWorkBook class
+get access to sheet
+Get access to all the rows
+get access to all the cells of tat row
+Access the data from excel into arrays
+
+For the data driven java code to work, the columns should not be empty. in real scenario it will not be empty, it would have data.
+Also remember in the example data returned from code is string not a integer. If cells have integers and string we need to make the arraylist generic, 
+else we will lose the precision in the integers.
+
+check the code in learning framework6 lecture.

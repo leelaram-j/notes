@@ -47,3 +47,5 @@ If you want to shedule your build every day at 8h00, this will do the job : 0 8 
 
 remember important thing while trying to configure jenkins is the jdk home, maven home and git..
 java -jar jenkins.war --enable-future-java
+
+Add testng results plugins to get results from testng suite. It will give u a graph of created builds.
