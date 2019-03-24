@@ -1,0 +1,28 @@
+Page Object Model:
+
+Easy to maintain
+Easy Readability of scripts
+Reduce or Eliminate duplicacy
+Reusability of code
+Reliability
+
+Sample websie:
+rediff.com
+
+
+Homepage-Java class(Basepage)-Objects of home page
+Login page-java classs(LoginPage)
+
+In ths method, first web application is seprated to pages.
+then for each page a class is created. and inside each page all the elements inside it are declared and written in functions as seen in PageObject_tutorial.
+then in our tests, a object of that class is created and and using that object we can access the elements inside that class.
+by this method, suppose we have 100 test cases and we need that needs to be performed in a same page. we don have to write the page elemenets 100 times we can just access it from that page class.
+
+we can even use the Page Object factory method using @FindBy annotation, which makes finding and returning elements more simpler.
+
+
+
+Page Object Factory method.
+
+@FindBy(xpath=".//input[@id='login1']");
+    WebElement userName;
