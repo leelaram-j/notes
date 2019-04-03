@@ -1,0 +1,44 @@
+End to End framework building from scratch:
+
+1) Creation of Maven project
+2) Creating Base and Utility functions
+3) Organizing Page Objects
+4) Adding Tests
+5) Data driving/Parameterizing Tests
+6) Converting into TestNG framework
+7) Log4j for Logging inside framework
+8) TestNG Listners
+9) Screenshots on Test Failures
+10) Creating Excellent HTML reports for Test Results
+11) Jenkins continuous Integration
+
+Framework Interview Questions:
+mail tutor:
+
+1) maven test project generation
+
+mvn archetype:generate -DgroupId={project-packaging}
+-DartifactId={project-name}
+-DarchetypeArtifactId=maven-archetype-quickstart
+-DinteractiveMode=false
+
+mvn archetype:generate -DgroupId=com.e2e.project -DartifactId=E2E_Project -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+
+
+<div class="container">
+	::before
+	<h2>Checklist</h2>
+
+
+Assertion Java:
+
+It is used to check for conditions. eg if an element is displayed 
+element is present
+
+to assert whether things are there.
+
+add testng xml file in pom.xml
+add listners in testng.xml
+add log4j.xml to resources folder
+add log4j location in pom.xml using maven resources filtering plugin
+add extent reports dependency and get the sample file from github and customize according to the need..
