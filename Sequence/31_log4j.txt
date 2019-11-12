@@ -44,3 +44,32 @@ log in separate file(real time)
 what to Log? in Loggers tag
 Loggers tag_Root tag
 root tag represents the master level(entire file)
+
+
+
+Loggging Levels:
+	- Define priorityorder of logged information
+
+Appenders
+	-Define the resources to publish to
+	-define the log level threshold above which to log for each resource
+	-Attributes of each appender depend on the type of appender
+
+Loggers
+	-Create Logged information
+	-Define custom loggers for selected packages and classes
+	-set the log level for each section
+	-Set the appenders to be used for each section
+
+Root Loggers
+	-Defines the base logging for all appenders
+	-only one root logger
+	-All loggers inherit attributes from roor and override root attributes
+
+
+
+
+
+
+
+
