@@ -21,3 +21,34 @@ eg classnamefirstpartbeforespace.classnamesecondpartafterspace
 
 
 check css_selector.java for all possible combinations..every combination there works.
+
+
+
+1) Simple select with wildcards:
+
+a[href^="https://play.google.com"] ---begins with given value
+a[href*="play.google.com"]--- look for given string anywhere in the given value
+a[href$="hl=en&tab=w8"] --> ends with the Value
+
+a[title~='apps']
+
+[class="gb_O"][data-pid="78"]
+
+
+CSS combinators:
+to locate child attirbutes in css
+a[href*="play.google.com"]>span.gb_W8 --> here we identiifed the play.google element and trying to naviagte to element 
+with class gb_W8 using .
+
+
+space means desecndant 
+
+ul[id='dsfs'] a[href*='play.google.com']
+
+adjacent sibling locator for css
+
+ul.gb_da.gb_6+a
+
+general sibling tag
+
+ul.gb_da.gb_6~a

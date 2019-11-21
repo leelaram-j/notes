@@ -56,3 +56,9 @@ This will search for element that has _u and select it.
 
 For multiple attributes selection you can use and operator.
 eg. //input[@attribute1='value1' and @attribute2='value2']
+
+
+
+https://developer.mozilla.org/en-US/docs/Web/Xpath
+
+

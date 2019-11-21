@@ -1,0 +1,87 @@
+Sample SQL queries for creatinf DB with table, mysql
+CREATE DATABASE Business;
+
+use Business;
+
+CREATE TABLE CustomerInfo
+(CourseName varchar(50),
+PurchasedDate date,
+Amount int(50),
+Location varchar(50));
+
+INSERT INTO CustomerInfo values("selenium",CURRENT_DATE(),120,'Africa');
+INSERT INTO CustomerInfo values("Protractor",CURRENT_DATE(),45,'Africa');
+INSERT INTO CustomerInfo values("Appium",CURRENT_DATE(),99,'Asia');
+INSERT INTO CustomerInfo values("WebServices",CURRENT_DATE(),21,'Asia');
+INSERT INTO CustomerInfo values("Jmeter",CURRENT_DATE(),76,'Asia');
+
+select * from CustomerInfo where purchasedDate=CURDATE() and Location ='Asia';
+
+
+POJO class implementation.
+
+
+First Step:
+
+// the below line is similar to import statement that is given at the top of the program,
+// here the class is called dynamically.
+Class.forName("com.mysql.cj.jdbc.Driver");
+
+// Create a connection object and initialize it to null or as seen below
+Connection conn =null;
+
+// below line is very important line, here we give what type of DB are we connecting
+// and the user name and port. here /Business is the database name. here db name also u can
+// fetch it from a external file like .properties file. the below is for reference
+conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Business","root","Samsung@123");
+
+// the below line is to instantiate statement class, this will be used in creating statement
+Statement st = conn.createStatement();
+
+// the below line, ResultSet class gets the o/p of the query  and here we give the query
+// u can have the queries else where were and get it called, like using .properties file
+ResultSet rs = st.executeQuery("select * from CustomerInfo where Location='Asia';");
+
+
+Always use array list if you are going to work with multiple queries that return multiple rows
+
+and create a generic utility with array list so that no matter the number of rows it return
+we can always use that utility to get the job done. 
+
+Second Step:
+
+      while(rs.next())
+        {
+            CustomerDetails c = new CustomerDetails();
+            // here we need to mention the number of column mapping
+            c.setCourseName(rs.getString(1));
+            c.setPurchaseDate(rs.getString(2));
+            c.setAmount(rs.getInt(3));
+            c.setLocation(rs.getString(4));
+            al.add(c);
+        }
+		
+The above query fetches the data from o/p of the query and adds to array list, here
+CustomerDetails is a class. this can be written in generic way as well so well or by using
+logic functions depending on group of test cases. this will be helpful in customizing the code.
+
+Suppose you are working with rest api and need to pass the o.p of query as body of request,
+do as below and create separate json files.
+
+download jackson api jars or add the dependencies in maven. This converts java objects to json.
+jackson core
+jackson databind
+jackson annotations
+
+for(int i=0;i<al.size();i++)
+{
+ ObjectMapper om = new ObjectMapper();
+ om.writeValue(new     File("//Users//lee//Documents//DB_connection//customerInfo"+i+".json"),al.get(i));     
+}
+
+the above code creates multiple files. in some scenarios that may be useful but not always.
+Some times we need to create a single json file and club all the records into a single file. for that please refer the below code.
+
+
+
+
