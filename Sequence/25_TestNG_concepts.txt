@@ -49,7 +49,7 @@ this is like setting a tag for certain cases and you can use this tag and run th
 
 <?xml version="1.0" encoding="UTF-8" ?>
 <suite name="Automation Testing">
-    <test name="Smoke Testing with groups">
+    <test name="Smoke Testing with groups" thread-count="5" parallel="methods">
         <groups>
             <run>
                 <include name="Priority1"/>
@@ -63,7 +63,7 @@ this is like setting a tag for certain cases and you can use this tag and run th
     </test>
 </suite>
 
-the above code will run test cases which has Priority1 tag alone. In the above code we can also exclude to stop executing certain test cases.
+the above code will run test cases which has Priority1 tag alone. In the above code we can also exclude to stop executing certain test cases. the tests will run a parallel mode.
 
 Helper attributes for tests in testng:
 dependsOn

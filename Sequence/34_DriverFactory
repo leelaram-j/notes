@@ -1,0 +1,16 @@
+Driver Factory is used to generate driver isntance.
+
+/**
+ * Q. What is a Singleton design pattern?
+ * 	Ensure that only one instance of the singleton class ever exists
+ * 	provide global access to that instance.
+ * 
+ * Q. What is a Factory design pattern?
+ * 	Define a separate operation (factory method) for creating an object.
+ * 	Create an object by calling a factory method.
+ * 
+ *
+ * Note: Design patterns represent the best practices to follow for solving common design problems.
+ */
+
+ Please refer the Driver factory code for more implementations.

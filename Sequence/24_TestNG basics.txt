@@ -86,3 +86,11 @@ sample code:
 this will remove all the tests that starts with mobile
 
 We can even run the test cases from package level as well.
+
+Common TestNG assertions:
+assertEquals(actual,expected);
+assertNotEquals(actual,expected);
+assertTrue(Condition);
+assertFalse(Condition);
+assertNull(Object);
+assertNotNull(object);

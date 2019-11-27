@@ -44,7 +44,7 @@ Adding multiple parameterization using the below code
 
 Second:
 create a @DataProvider function as below
-@DataProvider
+@DataProvider(name="dataProvider")
     public Object[][] getData()
     {
         // Object [i][j] means i->number of time the test should run,j means no. of parameters for a single run
@@ -58,13 +58,20 @@ create a @DataProvider function as below
 
 and before the test call it as seen below.
 	
-	@Test(dataProvider = "getData")
+	@Test(dataProvider = "dataProvider")
 	public void test112(String username,String password)
 	{
 		System.out.println("User name is "+username+" and password is "+password);
 	}
 
 Always remember in both methods the number of parameters passed in the test should be equal with the number of parameters passed in xml file or in the @DataProvider function.
+
+Good practise is to wrtite the data provder function in a separate class. so in order to tell the testng to find the location of the
+data provider, we need to mention the class name in the @Test section as seen below.
+
+@Test(dataProvider="sampleProvider",dataProviderClass=TestData.class)
+
+here the class name is TestData
 
 TestNG Listeners:
 
@@ -84,4 +91,23 @@ This can be controlled in testng xml file using the below attribute in suite lev
 even the same can be done for classes as well
 <test name="smokeTest" parallel="classes" thread-count="2">
 this will run classes inside the tests parallely.
+
+parallel="tests" --> each test method will run in a separate thread
+parallel="methods" --> each test tag will be run in a separate thread
+parallel="classes" --> each class will be run in a separate thread
+parallel="instances" --> each instance of class will be run in a separate thread
+
+Need for parallel execution:
+
+1) faster execution time
+test suites take considerable amount of time if tests are run in parallel.
+2) test if application unders test are thread safe.
+
+
+remember when running tests in parallel try to use local variables instead of instance variables as they are not thread safe.
+
+In case of data provider setting parallel setting in suite file will not work, we need to change it at dataprovider level  
+
+@DataProvider(parallel=true )
+
 
