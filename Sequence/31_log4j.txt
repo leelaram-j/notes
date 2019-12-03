@@ -66,6 +66,8 @@ Root Loggers
 	-only one root logger
 	-All loggers inherit attributes from roor and override root attributes
 
+https://logging.apache.org/log4j/2.x/manual/customloglevels.html
+
 
 
 
