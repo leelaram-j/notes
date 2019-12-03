@@ -1,6 +1,7 @@
 Apache Maven:
 
 Software project management and build management tool java frameworks
+convention over configuration
 
 advantages:
 central repository. with maven we need not import test cases. POM.xml for maven.
@@ -10,6 +11,7 @@ https://mvnrepository.com
 
 jars should not be harcoded, in real life. 
 
+pom--project object model
 
 maven central repository to get dependencies.
 maintaining common structure across the organization.
@@ -153,7 +155,7 @@ sample pom.xml file PFB.
 </project>
 
 Interview question:
-maven sure fire plugin
+maven sure-fire plugin
 it is must for running maven tests. without this we cant run tests. It must be in parent POM file in case if 2 POM files are used.
 
 mvn clean--> this will clear the previous builds temp files or buils etc...

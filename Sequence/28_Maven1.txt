@@ -22,7 +22,7 @@ mvn -Dtest=SampleTest test
 this command will run only tests from a particular class file, check teh above link for full documentation.
 
 
-Profiling Scenario inmaven
+Profiling Scenario in maven
 
 
 supoose we prepared one testng xml file for smoke test and one for regression.take the case of Maven Tutorial project. it has 2 xml files

@@ -1,0 +1,71 @@
+MAven:
+
+-main	
+	-java (framework related classes)
+	-resources(properties files or any configuration setting like environment ones)
+
+-test
+	-java(test classes)
+	-resources (any configuration files needed for tests)
+
+
+
+Page Object Model:
+
+-page object model is design pattern
+-page object model defines:
+	a) separate page class for each web page and
+	b) each page class will have methods to find and perform operations on it web elements.
+
+these go under /main/java/pages folder in maven folder type....
+
+
+Base Class and Utility Classes
+
+-Base class defines variables and methods that are common between derived classes.
+-Baseclass constructor should be invoked using 'super' keyword. It shuld be the first statement in the derived class constructor.
+ -- interview question -> super(); this should be the first statement in the derived class constructor. if not compile will throw an
+ 	error
+-Base class variable values can change between different instances of derived classes.
+
+-utility classes consist of static variables and methods.
+
+When to use Base class and Utility class -- interview question:
+
+utility classes are static--methods...only one copy of variables/methods/classes are available. so for those we need only one
+instances are put in utility classes.
+
+
+Constants class:
+in real time, when designing framework, the key in the .properties files are declared as public static final String in constant class.
+that way they are easy to access.
+
+need this place because, if there is any change in the key name, we need to change in multiple places. hence using this will
+allow us to make change in only 2 places...one in the .properties file another one in the constants file.
+this way it is easier for maintenance
+
+
+Configuration files (aka) Environment or Property files
+
+- Config files contain information that cannot be hardcoded and can be subject to cahnge
+ information like usernames, password, file/directory paths etc go into config files.
+- Some configuration files are shared betweenn diff environments (qa,regression)
+- Some configuration files are separate across diff environments (qa,regression)
+- Cofiguration files can be read using java properties object.
+
+
+keywords:
+- where super,abstract,static,final keywords are used.
+
+abstract
+should not be able to create an isntance for this class. this class can be extended but cannot be instantiated.
+
+Debugging
+- How to debug the application
+
+
+
+
+
+
+

@@ -25,21 +25,26 @@ First Step:
 
 // the below line is similar to import statement that is given at the top of the program,
 // here the class is called dynamically.
+
 Class.forName("com.mysql.cj.jdbc.Driver");
 
 // Create a connection object and initialize it to null or as seen below
+
 Connection conn =null;
 
 // below line is very important line, here we give what type of DB are we connecting
 // and the user name and port. here /Business is the database name. here db name also u can
 // fetch it from a external file like .properties file. the below is for reference
+
 conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/Business","root","Samsung@123");
 
 // the below line is to instantiate statement class, this will be used in creating statement
+
 Statement st = conn.createStatement();
 
 // the below line, ResultSet class gets the o/p of the query  and here we give the query
 // u can have the queries else where were and get it called, like using .properties file
+
 ResultSet rs = st.executeQuery("select * from CustomerInfo where Location='Asia';");
 
 

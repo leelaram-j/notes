@@ -1,0 +1,92 @@
+Maven other concepts:
+
+Super POM:
+default pom file that all pom.xml inherits..
+
+MVN life cycle.
+
+validate - validate the project is correct and all necessary information is available
+
+compile - compile the source code of teh project
+
+test - test the compiled source code using a suitable unit testing framework.
+		these tests should not require the code to be packaged or deployed
+
+package - take the compile code and package it in its distibutiev format, such as JAR
+
+verify - run any checks in results of integration tests to ensure quality criteria are met
+
+install - install the package into the local repository, for use as dependency in other projects locally
+
+deploy - copies the final package to the remote repository for sharing with other developers and projects,
+        done in the build environment  
+
+
+mvn package -- this helps us to package the project into a jar file, file will be created under target folder
+
+maven compile plugin
+
+phases and goals
+
+one phase may have diff goals
+
+maven repositories:
+
+public repor contain artifacts thhat are available for free download. no login is required.
+private repo re used by companies to upload and share the artifacts with other projects/team
+Currently Jfrog Artifactory and nexus repo are widely used repo to manage private artifacts.
+Apache archiva can also be used for this purpose.        
+
+pom.xml:
+
+<repositories>
+ <repository>
+  <id>atlassian</id>
+  <name>Atlassian Repository</name>
+  <url>https://packages.atlassian.com/maven-public/</url>
+ </repository>
+</repositories>
+
+
+Remote repositories can be configured either in pom.xml or settings.xml
+
+pom.xml:
+
+Public repositories are usually configured in pom.xml
+
+<repositories>
+<repository>
+<id>atlassian</id>
+<name>Atlassian Repository</name>
+<url>https://packages.atlassian.com/maven-public/</url>
+</repository>
+</repositories>
+<home>/.m2/settings.xml:
+
+Private repositories are usually configured in settings.xml
+
+<settings>
+<profiles>
+<profile>
+<id>atlassian-profile</id>
+<repositories>
+<repository>
+<id>atlassian</id>
+<url>https://packages.atlassian.com/maven-public/</url>
+</repository>
+</repositories>
+</profile>
+</profiles>
+ 
+<activeProfiles>
+<activeProfile>atlassian-profile</activeProfile>
+</activeProfiles>
+ 
+<servers>
+<server>
+<id>atlassian</id>
+<username>admin</username>
+<password>admin123</password>
+</server>
+</servers>
+</settings>

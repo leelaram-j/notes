@@ -1,0 +1,22 @@
+Maven Interview Questions:
+
+Maven is a build management tool
+
+-Convention over configuration
+-Dependency Management
+
+Convention over configuration:
+
+-main	
+	-java (framework related classes)
+	-resources(properties files or any configuration setting like environment ones)
+
+-test
+	-java(test classes)
+	-resources (any configuration files needed for tests)
+
+Ant vs Maven:
+
+in ant we need to specify where the resources are, main funtions are, tests are...and what type of packaging.
+but in maven since it is a structured folder model..everything is properly documented
+

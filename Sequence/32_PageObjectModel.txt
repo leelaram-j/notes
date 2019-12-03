@@ -26,3 +26,15 @@ Page Object Factory method.
 
 @FindBy(xpath=".//input[@id='login1']");
     WebElement userName;
+
+
+
+
+Page Object Model:
+
+-page object model is design pattern
+-page object model defines:
+	a) separate page class for each web page and
+	b) each page class will have methods to find and perform operations on it web elements.
+
+these go under /main/java/pages folder in maven folder type....
