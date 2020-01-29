@@ -1,0 +1,11 @@
+NewTab redirection:
+driver.get("https://www.google.com");
+        System.out.println(driver.getTitle());
+        ((JavascriptExecutor) driver).executeScript("window.open('about:blank','_blank');");
+        Set<String> ids = driver.getWindowHandles();
+        Iterator<String> is= ids.iterator();
+        String parentWindow = is.next();
+        String childWindow = is.next();
+        driver.switchTo().window(childWindow);
+        driver.get("https://www.facebook.com");
+        System.out.println(driver.getTitle());
