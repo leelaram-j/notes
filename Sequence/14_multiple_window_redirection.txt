@@ -29,3 +29,8 @@ driver.switchTo().window(parentId);
 driver.switchTo().window(ChildId);
 
 suppose there is a test case where you need to check whether it has redirected properly, use driver.getTitle() to verify whether the page has been redirected successfully.
+
+new tab creation:
+
+((JavascriptExecutor) driver).executeScript("window.open('about:blank','_blank');");
+        String s = WindowSwitcher.getChildWindow(driver.getWindowHandles());
