@@ -41,7 +41,7 @@ Very important part in testng is testng xml file.
 TestNG XML filee:
 
 Structure:
-Test Suite-->TEst Folder(Module)-->test cases
+Test Suite-->Test Folder(Module)-->test cases
 
 It has the configuration to run which tests/.class files. We can create a list of test cases and run them alone. for eg. if a build is ready and deployed, we can run a smoke test cases suite and test that alone.
 

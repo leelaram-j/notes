@@ -63,3 +63,9 @@ DesiredCapabilities cap = new DesiredCapabilities().merge(DesiredCapabilities.fi
 cap.acceptInsecureCerts();
 FirefoxDriver driverF = new FirefoxDriver(cap);
 driverF.get("https://expired.badssl.com/");
+
+
+ChromeOptions options = new ChromeOptions();
+options.setAcceptInsecureCerts(true);
+
+
