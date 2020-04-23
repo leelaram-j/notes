@@ -23,7 +23,7 @@ d.until(ExpectedConditions.elementTobeClickable)
 we also use explicit waits to check if css property of an element (presence,clickability..etc) which can change in Ajax applications.
 
 3- Thread.sleep(3000)
-thisis used to stop the execution of script for 3 seconds as it tkes arguments in milliseconds. This may be used for sample purposes but for main coding this should not be used as it is not a good way to write programs.
+this is used to stop the execution of script for 3 seconds as it tkes arguments in milliseconds. This may be used for sample purposes but for main coding this should not be used as it is not a good way to write programs.
 
 4- Fluent wait
 Below code will explain the usage of FluentWait. also rememmber to import the respective imports for the below code.Please remember that for Function import in the beow code use 

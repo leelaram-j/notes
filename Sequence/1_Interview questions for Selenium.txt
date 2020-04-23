@@ -29,7 +29,7 @@ java pearl c# python ruby js
 6) webdriver interface
 
 webdriver is a interface.It has set of methods without classes. It depends on what type of browser im plannng to use. 
-	so for firefox i will use FirefoxDriver class to use the methods in WebDriver interface.
+	so for firefox it will use FirefoxDriver class to use the methods in WebDriver interface.
 
 7) methods in webdriver
 

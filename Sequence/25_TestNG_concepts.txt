@@ -81,3 +81,7 @@ enabled-->false will stop test from executing
 
 @Test(timeOut=4000)
 waits for maximum of 40 seconds.
+
+Interview questions:
+
+if a testcase class file inherits base test, and the base test has @beforetest and the testcase class has @beforetest. in this case both the @beforetest will run and the baseclass one will run first and the testcase class @beforetest will run next. even if the alphabetical orders are different base one will be executed first. then only testcase class.

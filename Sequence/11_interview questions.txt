@@ -1,4 +1,4 @@
-Ho wot handle dropdowns in selenium
+How to handle dropdowns in selenium
 it is done using select class in seleniumwebdriver
 diff methods
 1) option text

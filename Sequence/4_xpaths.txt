@@ -54,6 +54,8 @@ in similar way if an element id has both starting and ending dynamic values then
 //input[contains(@id,'_u')]
 This will search for element that has _u and select it.
 
+//input[contains(text(),'textvalue')]
+
 For multiple attributes selection you can use and operator.
 eg. //input[@attribute1='value1' and @attribute2='value2']
 

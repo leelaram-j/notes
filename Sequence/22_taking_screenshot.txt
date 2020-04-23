@@ -16,5 +16,5 @@ public static void main(String[] args) throws Exception
     }
 	
 	
-Taking screenshot as above code. write a function/class for its reusage. IT is more easier to create a class or function. and call iti n your code. in order for it to work you need to include apache common io jars into your project. then only fileutils will work
+Taking screenshot as above code. write a function/class for its reusage. IT is more easier to create a class or function. and call it in your code. in order for it to work you need to include apache common io jars into your project. then only fileutils will work
 	

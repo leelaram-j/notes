@@ -31,5 +31,4 @@ if(s.equals("Cheese"))
 driver.findElements(By.cssSelector("[name='group1']")).get(i).click();
 }
 
-
 refer coderadio_button for details.

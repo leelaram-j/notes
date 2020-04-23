@@ -17,7 +17,7 @@ maven central repository to get dependencies.
 maintaining common structure across the organization.
 Flexibility in integration with CI tools.
 Plugins for Test Framework Execution.
-- usage of testng anf junit
+- usage of testng and junit
 
 google search: maven in 5 mins
 https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html
@@ -165,7 +165,7 @@ mvn test--> It will start execution of tests.
 maven algorithm, it expects the class name to end with Test.java, the only it recognizes the class file else it wont run the tests.
 
 
-Once this is done here in the above testng.xml is the xml file which defines which all test needed to be run. we can speicfy which all packages needed to be run. We can also specify to run 2 xml files at one time.
+Once this is done here in the above testng.xml is the xml file which defines which all test needed to be run. we can specify which all packages needed to be run. We can also specify to run 2 xml files at one time.
 
 say we have 2 xml file one for build validation and regression, we can create profiles in the pom.xml file
 PFB
